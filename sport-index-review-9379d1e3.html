@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 运动索引专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+            color: #2c3e4f;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* hero 横幅 / 杂志头 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.2rem 2.8rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02), 0 4px 8px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eaeef3;
+            margin-bottom: 2.5rem;
+            position: relative;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 12px 24px rgba(0, 20, 30, 0.04);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #6b7c8b;
+            background: #eef2f7;
+            padding: 0.15rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            border: 1px solid #dce3ec;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #1b2a38;
+            max-width: 80%;
+        }
+
+        .hero h1 i {
+            font-style: normal;
+            background: linear-gradient(145deg, #2d4a62, #3b5f7a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .sub {
+            margin-top: 0.8rem;
+            color: #5a6f7e;
+            font-size: 1.05rem;
+            border-left: 3px solid #b7c9d9;
+            padding-left: 1.2rem;
+            max-width: 70%;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 2rem 2.2rem;
+            border: 1px solid #e2e9f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            flex: 1 1 280px;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(44, 62, 79, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 520;
+            letter-spacing: -0.3px;
+            color: #1f3243;
+            margin-bottom: 0.9rem;
+            border-bottom: 1px dashed #dbe3ec;
+            padding-bottom: 0.45rem;
+        }
+
+        .card p {
+            color: #3c4e5e;
+            font-size: 0.96rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card .meta {
+            font-size: 0.82rem;
+            color: #6d808f;
+            background: #f4f7fb;
+            display: inline-block;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            margin-top: 0.4rem;
+        }
+
+        /* 背景说明 / 侧写 */
+        .background-note {
+            background: #f7fafd;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #dce4ed;
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1rem 2.5rem;
+        }
+
+        .background-note .note-label {
+            font-weight: 500;
+            color: #3d5a73;
+            background: #e2ecf5;
+            padding: 0.05rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .background-note .note-text {
+            flex: 1;
+            min-width: 200px;
+            color: #2b4052;
+        }
+
+        .background-note .note-text p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 页尾提示 */
+        .footer-notice {
+            background: #ffffff;
+            border-radius: 26px;
+            padding: 2rem 2.5rem 1.8rem;
+            border: 1px solid #e2eaf2;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.01);
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .footer-notice p {
+            margin: 0.3rem 0;
+            color: #2f465a;
+        }
+
+        .footer-notice .faq-mini {
+            font-size: 0.9rem;
+            background: #f4f8fd;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #d8e2ed;
+            color: #1d3547;
+        }
+
+        .footer-notice .faq-mini span {
+            font-weight: 500;
+        }
+
+        a {
+            color: #1e4b6e;
+            text-decoration: none;
+            border-bottom: 1px dotted #a2bccf;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0c314b;
+            border-bottom: 1px solid #1e4b6e;
+        }
+
+        .inline-link {
+            border-bottom: 1px solid #b2c7da;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                max-width: 100%;
+            }
+
+            .hero .sub {
+                max-width: 100%;
+                padding-left: 0.9rem;
+            }
+
+            .card {
+                flex: 1 1 100%;
+            }
+
+            .background-note {
+                padding: 1.5rem 1.2rem;
+                flex-direction: column;
+            }
+
+            .footer-notice {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HERO 杂志横幅 -->
+    <div class="hero">
+        <div class="hero-badge">⚡ 索引专题 · 运动视野</div>
+        <h1><i>爱游戏</i> · 从碎片到脉络</h1>
+        <div class="sub">
+            资料整理不是堆砌，是一种安静的梳理。把零散信息变成可翻阅的索引。
+        </div>
+    </div>
+
+    <!-- 三段自然介绍 (卡片) -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>辑录 · 归档思路</h3>
+            <p>日常浏览时，常遇到有意思的运动资讯、赛事背景或社区讨论。把它们按主题标记、分类、打上标签，慢慢就形成了一份私人索引。比起单点收藏，更看重条目之间的隐性关联。</p>
+            <div class="meta">🏷️ 标签结构 · 时序</div>
+        </div>
+
+        <div class="card">
+            <h3>场景 · 随手翻阅</h3>
+            <p>周末想找某项运动的入门介绍，或者翻看之前整理的赛历、场地信息——打开 <a href="https://sport-index-igame.com" class="inline-link">爱游戏</a>，像翻一本不过时的剪贴簿。不追求即时刷新，更在意内容的沉淀与重组。</p>
+            <div class="meta">📂 场景化目录</div>
+        </div>
+
+        <div class="card">
+            <h3>漫谈 · 索引延伸</h3>
+            <p>有时从一条装备测评跳到运动医学基础，又从那里绕到户外安全清单。索引的意义在于让这些跳跃变得可回溯。信息不必完美，但要留有路径。</p>
+            <div class="meta">🧩 关联 · 发散</div>
+        </div>
+    </div>
+
+    <!-- 背景说明 (杂志侧写) -->
+    <div class="background-note">
+        <span class="note-label">📌 背景</span>
+        <div class="note-text">
+            <p>这个索引最初是因为自己记性不好——好看的比赛、好用的训练方法，转头就忘。于是开始用最朴素的方式：把链接、片段、截图整理到一起。后来发现，很多人也有类似的习惯：不是专业编辑，只是想给自己搭一个信息书架。</p>
+            <p>运动类信息尤其零碎：规则、术语、历史、装备…… 如果能有一个按主题聚合的入口，检索起来会轻松很多。基于这种想法，慢慢把散落的内容对齐到统一的框架里，就有了现在的 <a href="https://sport-index-igame.com">爱游戏</a> 索引页。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 / 页尾提示 -->
+    <div class="footer-notice">
+        <div style="flex:1;">
+            <p style="font-weight:500; margin-bottom:0.2rem;">❓ 常见思路</p>
+            <p>索引会定期增补条目，但保持克制——不塞入重复或未经核实的片段。如果你在寻找某项运动的入门指引或资料合集，不妨在 <a href="https://sport-index-igame.com">爱游戏</a> 里按标签浏览。也欢迎在站内反馈遗漏的优质来源。</p>
+        </div>
+        <div class="faq-mini">
+            <span>ℹ️</span> 目前收录：运动项目 12+ · 摘要 40+ · 持续整理
+        </div>
+    </div>
+
+    <!-- 极简分隔 + 提示性文字 (不包含链接) -->
+    <div style="margin-top: 1.8rem; text-align: right; font-size: 0.75rem; color: #6c8296; letter-spacing: 0.5px; border-top: 1px solid #dfe6ef; padding-top: 1rem;">
+        杂志式索引 · 非官方资料库
+    </div>
+</div>
+</body>
+</html>

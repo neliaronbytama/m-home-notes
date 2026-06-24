@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 移动端指南专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f5d6b8 35%, #ecbf9a 70%, #e0ac80 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.4rem 1.2rem;
+            line-height: 1.65;
+            color: #3e2c1a;
+        }
+
+        .page-wrapper {
+            max-width: 840px;
+            width: 100%;
+            background: rgba(255, 245, 235, 0.65);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 24px 40px -12px rgba(120, 70, 30, 0.35);
+            overflow: hidden;
+            padding: 0 0 2.5rem 0;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(125deg, #be7c4b 0%, #d5975f 50%, #e6b07a 100%);
+            padding: 3.2rem 2.4rem 2.8rem;
+            color: #fcf3e7;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: rgba(255, 245, 235, 0.65);
+            mask: radial-gradient(ellipse at 50% 100%, #fff0 72%, transparent 72%);
+            -webkit-mask: radial-gradient(ellipse at 50% 100%, #fff0 72%, transparent 72%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 6px rgba(80, 40, 10, 0.2);
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            font-weight: 380;
+            background: rgba(252, 243, 231, 0.2);
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            margin-top: 0.6rem;
+        }
+
+        /* 背景说明卡片 */
+        .context-card {
+            background: #fffaf5;
+            margin: 1.8rem 1.8rem 1.2rem;
+            padding: 2rem 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 16px -6px rgba(150, 90, 40, 0.12);
+            border: 1px solid rgba(230, 200, 170, 0.35);
+        }
+
+        .context-card h2 {
+            font-size: 1.6rem;
+            font-weight: 480;
+            color: #5a3c22;
+            margin-bottom: 1rem;
+            border-left: 5px solid #d5975f;
+            padding-left: 1rem;
+        }
+
+        .context-card p {
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
+            color: #4f3820;
+        }
+
+        .context-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三段自然介绍 — 使用 flex 网格 */
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            margin: 0.8rem 1.8rem 1.8rem;
+        }
+
+        .intro-card {
+            flex: 1 1 200px;
+            background: #fffaf5;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 1.5rem;
+            box-shadow: 0 6px 14px -6px rgba(90, 55, 20, 0.1);
+            border: 1px solid #eddcc8;
+            transition: all 0.15s ease;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px -10px rgba(130, 70, 20, 0.18);
+            border-color: #d5975f;
+        }
+
+        .intro-card .emoji-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-card h3 {
+            font-size: 1.3rem;
+            font-weight: 520;
+            margin-bottom: 0.6rem;
+            color: #5a3c22;
+        }
+
+        .intro-card p {
+            font-size: 0.95rem;
+            color: #4f3820;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FAQ / 提醒 摘要 */
+        .faq-summary {
+            background: #fffaf5;
+            margin: 1rem 1.8rem 2rem;
+            padding: 1.8rem 2.2rem;
+            border-radius: 32px;
+            box-shadow: 0 6px 14px -6px rgba(90, 55, 20, 0.08);
+            border: 1px solid #eddcc8;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 480;
+            color: #5a3c22;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #d5975f;
+            padding-left: 1rem;
+        }
+
+        .qa-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .qa-item strong {
+            display: block;
+            font-weight: 550;
+            color: #7a532f;
+            margin-bottom: 0.2rem;
+        }
+
+        .qa-item p {
+            color: #4f3820;
+            font-size: 0.95rem;
+            margin-left: 0.2rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            background: #fffaf5;
+            margin: 0 1.8rem;
+            padding: 1.5rem 2rem;
+            border-radius: 48px;
+            text-align: center;
+            border: 1px solid #eddcc8;
+            box-shadow: 0 4px 10px -4px rgba(100, 60, 20, 0.08);
+        }
+
+        .footer-note p {
+            font-size: 1.1rem;
+            color: #4f3820;
+        }
+
+        .footer-note a {
+            color: #885a30;
+            font-weight: 580;
+            text-decoration: none;
+            background: #f0ddc8;
+            padding: 0.2rem 1.4rem;
+            border-radius: 40px;
+            display: inline-block;
+            transition: all 0.12s ease;
+            box-shadow: 0 2px 6px rgba(130, 70, 25, 0.08);
+            border: 1px solid #dbb28c;
+            margin: 0 0.3rem;
+        }
+
+        .footer-note a:hover {
+            background: #e3c5a8;
+            border-color: #b88459;
+            box-shadow: 0 6px 12px -4px rgba(110, 60, 15, 0.2);
+            transform: scale(1.02);
+        }
+
+        .footer-note .small-meta {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #7a6248;
+            opacity: 0.8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 580px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .context-card,
+            .faq-summary,
+            .footer-note {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                padding: 1.4rem 1.2rem;
+            }
+
+            .intro-grid {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                gap: 1rem;
+            }
+
+            .intro-card {
+                flex: 1 1 100%;
+            }
+
+            .footer-note p {
+                font-size: 1rem;
+            }
+
+            .footer-note a {
+                padding: 0.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <!-- hero 横幅 -->
+    <header class="hero">
+        <h1>爱游戏 · 移动视野</h1>
+        <span class="tagline">简明指南 · 随身陪伴</span>
+    </header>
+
+    <!-- 背景说明 -->
+    <section class="context-card">
+        <h2>📌 关于这个站点</h2>
+        <p>日常通勤、午间小憩或周末窝在沙发里，手机总是最触手可及的屏幕。<a href="https://sport-mobile-igame.com" style="color:#885a30; font-weight:580; text-decoration:underline; text-underline-offset:3px;">爱游戏</a> 就是这样一个为你整理移动端内容的小站，它不追求震撼噱头，只希望在你需要放松或获取信息时，多一个清爽的去处。</p>
+        <p>没有复杂的花哨功能，一切围绕轻量、直接和友好。这里更像一个安静的页面合集，你可以随时打开，快速找到自己感兴趣的东西。</p>
+    </section>
+
+    <!-- 三段自然介绍 : 特点 / 场景 / 感受 -->
+    <div class="intro-grid">
+        <article class="intro-card">
+            <span class="emoji-icon">🧭</span>
+            <h3>轻量浏览</h3>
+            <p>页面布局以阅读体验优先，没有弹窗干扰，加载迅速。无论是在地铁上还是咖啡厅，打开就能进入状态。</p>
+            <p>内容按专题组织，不堆砌信息，每次浏览都像翻开一本轻巧的杂志。</p>
+        </article>
+        <article class="intro-card">
+            <span class="emoji-icon">📱</span>
+            <h3>适配习惯</h3>
+            <p>为移动端优化了触控与视觉细节，按钮大小、字体间距都考虑了指头操作。当然，在平板或电脑上打开也同样整洁。</p>
+            <p>不用下载额外应用，浏览器就是入口。将页面添加到主屏幕，下次访问更方便。</p>
+        </article>
+        <article class="intro-card">
+            <span class="emoji-icon">☕</span>
+            <h3>放松节奏</h3>
+            <p>信息流再快，也总需要一个可以慢下来的角落。这里没有催促式的推送，只有你主动选择的内容。</p>
+            <p>花几分钟翻阅，或者只是收藏一个链接，都由你来决定步调。</p>
+        </article>
+    </div>
+
+    <!-- FAQ / 提醒摘要 -->
+    <section class="faq-summary">
+        <h2>💬 常见小问题</h2>
+        <div class="qa-item">
+            <strong>❓ 页面会不会很复杂？</strong>
+            <p>不会。整个站点的设计方向就是“翻开即用”，你看到的就是全部，没有隐藏菜单或多余步骤。</p>
+        </div>
+        <div class="qa-item">
+            <strong>❓ 需要注册或登录吗？</strong>
+            <p>不需要。所有内容直接呈现，不收集任何个人信息，也没有强制注册的环节。</p>
+        </div>
+        <div class="qa-item">
+            <strong>❓ 内容更新频率如何？</strong>
+            <p>站内会不定期整理新的专题与推荐，但保持克制——我们不追求日更，而是希望每次更新都有实在的阅读价值。</p>
+        </div>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>
+            如果你想亲自感受一下这个轻量的移动端空间，
+            <a href="https://sport-mobile-igame.com">爱游戏</a>
+            就在这里。没有压力，只有你打开的每一页。
+        </p>
+        <span class="small-meta">🌿 移动端友好 · 随开随用</span>
+    </footer>
+
+</div>
+
+</body>
+</html>

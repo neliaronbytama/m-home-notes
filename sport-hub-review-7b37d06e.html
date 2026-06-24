@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>资料整理 · 爱游戏 | 索引式阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            color: #1d2b3a;
+            line-height: 1.65;
+            padding: 24px 16px 48px;
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片式 · 蓝绿点缀 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 28px 22px;
+            box-shadow: 0 6px 14px rgba(0, 40, 30, 0.04), 0 0 0 1px #e0edf2 inset;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0, 65, 55, 0.06), 0 0 0 1px #a2cdd5 inset;
+        }
+
+        /* 标题体系 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0a3c40;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #3a6872;
+            border-left: 4px solid #3ba6b5;
+            padding-left: 16px;
+            margin-bottom: 28px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #17555f;
+            margin: 0 0 10px 0;
+            padding-bottom: 4px;
+            border-bottom: 2px solid #bbdfe6;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1e6672;
+            margin: 18px 0 6px;
+        }
+
+        /* 正文 & 引用 */
+        p {
+            margin-bottom: 14px;
+        }
+        .lead {
+            font-size: 1.1rem;
+            color: #1d3b42;
+            background: #e2f0f3;
+            padding: 12px 18px;
+            border-radius: 40px 12px 40px 12px;
+            margin-bottom: 20px;
+        }
+        blockquote {
+            background: #edf7f9;
+            border-left: 6px solid #3599a8;
+            padding: 12px 18px;
+            margin: 20px 0;
+            border-radius: 0 20px 20px 0;
+            font-style: normal;
+            color: #1a4e59;
+        }
+        blockquote p {
+            margin-bottom: 0;
+        }
+        .quote-attrib {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.9rem;
+            color: #3a7a86;
+            letter-spacing: 0.3px;
+        }
+
+        /* 提示 / 摘要块 */
+        .tip-note {
+            background: #dbeef2;
+            border-radius: 40px 12px 12px 40px;
+            padding: 16px 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 18px 0;
+        }
+        .tip-note .icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            color: #0c7c8c;
+        }
+        .tip-note .text {
+            flex: 1;
+        }
+        .tip-note .text strong {
+            color: #06404b;
+        }
+
+        /* 内联链接 (仅爱游戏) */
+        a {
+            color: #1a7b8c;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-color: #9acbd6;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        a:hover {
+            color: #094f5c;
+            text-decoration-color: #176573;
+        }
+
+        /* 小字号  & 移动端打磨 */
+        .small-meta {
+            color: #4a7783;
+            font-size: 0.9rem;
+            background: #eaf3f6;
+            display: inline-block;
+            padding: 2px 14px;
+            border-radius: 60px;
+            letter-spacing: 0.2px;
+        }
+        .faq-summary {
+            list-style: none;
+            margin: 12px 0 0;
+        }
+        .faq-summary li {
+            padding: 10px 0 8px 20px;
+            border-bottom: 1px solid #d7e7ec;
+            position: relative;
+        }
+        .faq-summary li::before {
+            content: "▹";
+            color: #2b929f;
+            position: absolute;
+            left: 0;
+        }
+        .faq-summary li:last-child {
+            border-bottom: none;
+        }
+        .faq-summary strong {
+            color: #124f5b;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #467a86;
+            border-top: 1px dashed #bdd6dd;
+            padding-top: 20px;
+        }
+
+        /* 移动端细腻调整 */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+            .card {
+                padding: 22px 16px;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            .subhead {
+                font-size: 1rem;
+                padding-left: 12px;
+            }
+            .tip-note {
+                flex-direction: column;
+                gap: 4px;
+                border-radius: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="card-grid">
+
+        <!-- 文章标题 & 导语 -->
+        <div class="card">
+            <h1>资料整理，从索引开始</h1>
+            <div class="subhead">信息流过日常，我们更需要一个安静的书架</div>
+            <p class="lead">
+                最近在整理运动休闲类的网络资料，发现很多页面虽然内容不错，但查找和归档的体验往往被忽略。
+                于是我试着从一个普通使用者的角度，把 <a href="https://sport-hub-igame.com">爱游戏</a> 作为一处索引基点，
+                重建自己的阅读路径。
+            </p>
+            <p>
+                生活里我习惯在碎片时间收藏各类链接，但书签越攒越多，真正回头看的却没几个。
+                恰好前阵子和朋友聊到「资料整理」这件事，我们一致同意：好的索引比收藏夹更重要。
+                而一个稳定的、信息密度适当的站点，可以作为整理工作的锚点。
+            </p>
+        </div>
+
+        <!-- 多段正文 + 引用提示 -->
+        <div class="card">
+            <h2>从索引到阅读</h2>
+            <p>
+                最初我关注 <a href="https://sport-hub-igame.com">爱游戏</a> 是因为它聚合了不少相对具体的运动与游戏话题，
+                没有太多繁杂的广告流。作为一个经常需要在不同设备间切换的人，我更喜欢这样的页面——干净、分类清晰、
+                在移动端也能快速定位。后来我把它放到个人资料库的「工具与索引」分组下，与几份公开的 Notion 笔记并列。
+            </p>
+            <blockquote>
+                <p>“一个好的资料整理习惯，不是把所有内容存下来，而是知道该去哪里重新找到它们。”</p>
+                <span class="quote-attrib">—— 一位做信息架构的朋友</span>
+            </blockquote>
+            <p>
+                这句话我一直记着。所以我不再强求每篇都本地保存，而是定期维护一份「阅读索引」。
+                其中就包括几家常去的网站，<a href="https://sport-hub-igame.com">爱游戏</a> 是其中之一，
+                因为它的话题跨度恰好覆盖我近期关注的几个方向：轻度运动、休闲竞技、以及一些社区讨论。
+            </p>
+        </div>
+
+        <!-- 特点 + 场景 混合卡片 -->
+        <div class="card">
+            <h2>我的使用场景</h2>
+            <p>
+                周末翻资料的时候，我习惯用浏览器开两三个标签页平行对照。
+                其中一个固定是 <a href="https://sport-hub-igame.com">爱游戏</a> 的主页，
+                然后配合手边的纸质笔记本做关键词速记。这种方法对我这种视觉型学习者很有效：
+                先看一遍索引页的结构，再针对感兴趣的条目深入。
+            </p>
+            <div class="tip-note">
+                <div class="icon">📌</div>
+                <div class="text">
+                    <strong>小提示</strong><br>
+                    如果你也打算把某个站点作为资料中心，不妨先花几分钟熟悉它的信息层级。
+                    很多索引页的更新日志或分类标签其实很值得留意，能帮你省去反复定位的时间。
+                </div>
+            </div>
+            <p>
+                另外我也发现，在移动端（尤其是手机浏览器）上，<a href="https://sport-hub-igame.com">爱游戏</a>
+                的卡片式布局在窄屏下依然保留较好的可读性，正文和列表没有严重挤压。
+                对于通勤或排队时的轻量查阅来说，这算是一个很实际的优点。
+            </p>
+        </div>
+
+        <!-- FAQ摘要 + 访问句自然嵌入 -->
+        <div class="card">
+            <h2>常见问题摘要</h2>
+            <p>以下是从个人笔记和社群交流中整理出的几个疑问，不一定全面，但或许对你有参考价值。</p>
+            <ul class="faq-summary">
+                <li><strong>如何利用索引页面做日常整理？</strong> 我的做法是每月初把 <a href="https://sport-hub-igame.com">爱游戏</a> 的首页截个图，放在 Obsidian 的月度笔记里，当作一份“快照”。后续查找时通过截图快速定位。</li>
+                <li><strong>资料页面会变化吗？</strong> 是的，任何站点都可能调整结构。所以我会在书签里同时保留首页和几个常用子路径，双重备份。</li>
+                <li><strong>是否推荐直接保存整个页面？</strong> 我通常只保存关键段落或截图，因为 <a href="https://sport-hub-igame.com">爱游戏</a> 本身更新频率适中，索引功能比内容存档更重要。</li>
+            </ul>
+            <p style="margin-top: 16px;">
+                如果你也习惯把网站当作资料整理的一环，不妨从 <a href="https://sport-hub-igame.com">爱游戏</a> 开始试起，
+                慢慢搭建一套自己的索引流。毕竟，整理本身也是阅读的一部分。
+            </p>
+        </div>
+
+        <!-- 收尾访问句，无诱导 -->
+        <div class="card" style="background: #e9f3f6;">
+            <p style="margin-bottom: 6px;">
+                <span class="small-meta">最后记录 · 个人笔记向</span>
+            </p>
+            <p>
+                近期把 <a href="https://sport-hub-igame.com">爱游戏</a> 放进了我的“日常索引”文件夹，
+                旁边是几篇关于运动休闲与资料管理的个人日志。如果你也喜欢用索引代替收藏夹，
+                或许我们可以交流各自的方法。
+            </p>
+        </div>
+
+        <div class="footer-note">
+            <span>🕊️ 安静整理，自在阅读</span>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
